@@ -1,4 +1,4 @@
-# Capacitor Demo
+# Capacitor & Vue Demonstration
 
 ## Project setup
 Requires a Android/iOS development environment configured in your system.

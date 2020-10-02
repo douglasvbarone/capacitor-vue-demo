@@ -24,6 +24,12 @@ const routes = [
     name: "Camera",
     component: () =>
       import(/* webpackChunkName: "camera" */ "../views/Camera.vue")
+  },
+  {
+    path: "/location",
+    name: "Location",
+    component: () =>
+      import(/* webpackChunkName: "location" */ "../views/Location.vue")
   }
 ];
 

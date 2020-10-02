@@ -32,7 +32,10 @@
     <v-app-bar app flat dense color="white">
       <v-app-bar-nav-icon @click="drawer = !drawer" />
       <v-spacer />
-      <v-btn color="accent" icon href="https://github.com/douglasvbarone/capacitor-vue-demo"
+      <v-btn
+        color="accent"
+        icon
+        href="https://github.com/douglasvbarone/capacitor-vue-demo"
         ><v-icon>mdi-git</v-icon></v-btn
       >
     </v-app-bar>
@@ -52,8 +55,7 @@ export default {
     nav: [
       { title: "Home", icon: "mdi-view-dashboard", to: "/" },
       { title: "Camera", icon: "mdi-camera", to: "/camera" },
-      { title: "Location", icon: "mdi-map-marker", to: "/location" },
-      { title: "Home3", icon: "mdi-view-dashboard", to: "/home3" }
+      { title: "Location", icon: "mdi-map-marker", to: "/location" }
     ]
   })
 };

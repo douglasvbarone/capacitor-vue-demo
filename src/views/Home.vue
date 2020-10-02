@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid>
+  <v-container class="fill-height">
     <v-card class="home ma-1 " flat>
       <div class="my-5 text-center display-1">
         Capacitor & Vue
