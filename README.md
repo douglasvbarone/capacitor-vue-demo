@@ -1,19 +1,24 @@
-# capacitor-vue-demo
+# Capacitor Demo
 
 ## Project setup
+Requires a Android/iOS development environment configured in your system.
+
+Then:
 ```
 npm install
 ```
 
 ### Compiles and hot-reloads for development
+
 ```
-npm run serve
+npm run capacitor:serve
 ```
 
 ### Compiles and minifies for production
 ```
-npm run build
+npm run capacitor:build
 ```
+This will open your native platform IDE.
 
 ### Lints and fixes files
 ```

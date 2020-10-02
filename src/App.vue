@@ -32,7 +32,7 @@
     <v-app-bar app flat dense color="white">
       <v-app-bar-nav-icon @click="drawer = !drawer" />
       <v-spacer />
-      <v-btn color="accent" icon href="https://github.com/douglasvbarone/"
+      <v-btn color="accent" icon href="https://github.com/douglasvbarone/capacitor-vue-demo"
         ><v-icon>mdi-git</v-icon></v-btn
       >
     </v-app-bar>
