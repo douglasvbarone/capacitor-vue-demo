@@ -1,56 +1,60 @@
 <template>
-  <v-app>
-    <v-app-bar app color="primary" dark>
-      <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
+  <v-app id="demo">
+    <v-navigation-drawer v-model="drawer" app>
+      <v-list dense rounded>
+        <v-list-item class="mb-4">
+          <v-list-item-content>
+            <v-list-item-title class="title">
+              Capacitor & Vue
+            </v-list-item-title>
+            <v-list-item-subtitle>Demonstration</v-list-item-subtitle>
+          </v-list-item-content>
+        </v-list-item>
 
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
-      </div>
+        <v-list-item
+          color="primary"
+          v-for="item in nav"
+          :key="item.title"
+          :to="item.to"
+          exact
+        >
+          <v-list-item-icon>
+            <v-icon>{{ item.icon }}</v-icon>
+          </v-list-item-icon>
 
-      <v-spacer></v-spacer>
+          <v-list-item-content>
+            <v-list-item-title>{{ item.title }}</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list>
+    </v-navigation-drawer>
 
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
+    <v-app-bar app flat dense color="white">
+      <v-app-bar-nav-icon @click="drawer = !drawer" />
+      <v-spacer />
+      <v-btn color="accent" icon href="https://github.com/douglasvbarone/"
+        ><v-icon>mdi-git</v-icon></v-btn
       >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
     </v-app-bar>
 
     <v-main>
-      <HelloWorld />
+      <router-view @openDrawer="drawer = true" />
     </v-main>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld";
-
 export default {
   name: "App",
 
-  components: {
-    HelloWorld
-  },
-
   data: () => ({
-    //
+    drawer: true,
+    nav: [
+      { title: "Home", icon: "mdi-view-dashboard", to: "/" },
+      { title: "Camera", icon: "mdi-camera", to: "/camera" },
+      { title: "Location", icon: "mdi-map-marker", to: "/location" },
+      { title: "Home3", icon: "mdi-view-dashboard", to: "/home3" }
+    ]
   })
 };
 </script>
