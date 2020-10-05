@@ -4,6 +4,7 @@
       <v-col class="text-center">
         <v-btn
           v-if="!position"
+          :loading="loading"
           @click="getCurrentPosition"
           color="primary"
           x-large
@@ -29,11 +30,13 @@ const { Geolocation, Modals } = Plugins;
 export default {
   name: "Location",
   data: () => ({
-    position: null
+    position: null,
+    loading: false
   }),
   methods: {
     async getCurrentPosition() {
       try {
+        this.loading = true;
         const position = await Geolocation.getCurrentPosition();
         this.position = {
           latitude: position.coords.latitude,
@@ -46,6 +49,8 @@ export default {
           message: "Location unavailable.",
           buttonTitle: "OK"
         });
+      } finally {
+        this.loading = false;
       }
     }
   }
