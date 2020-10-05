@@ -32,6 +32,20 @@ const routes = [
       import(/* webpackChunkName: "location" */ "../views/Location.vue")
   },
   {
+    path: "/local-notifications",
+    name: "LocalNotifications",
+    component: () =>
+      import(
+        /* webpackChunkName: "local-notifications" */ "../views/LocalNotifications.vue"
+      )
+  },
+  {
+    path: "/modals",
+    name: "Modals",
+    component: () =>
+      import(/* webpackChunkName: "modals" */ "../views/Modals.vue")
+  },
+  {
     path: "/device",
     name: "Device",
     component: () =>

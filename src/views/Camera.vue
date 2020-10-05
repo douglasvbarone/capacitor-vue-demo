@@ -1,5 +1,10 @@
 <template>
   <v-container class="fill-height">
+    <v-row>
+      <v-col :cols="12" class="text-center">
+        <v-icon size="96pt" color="secondary">mdi-camera</v-icon>
+      </v-col>
+    </v-row>
     <v-row v-if="!imageSrc" class="align-content-center">
       <v-col>
         <v-btn x-large @click="takePicture(true)" block rounded color="primary">
@@ -16,7 +21,7 @@
     </v-row>
     <v-row v-else>
       <v-col>
-        <v-img :src="imageSrc" width="100%" contain />
+        <v-img :src="imageSrc" width="100%" max-height="50%" contain />
         <v-btn class="mt-4" @click="imageSrc = null" block color="primary" text>
           <v-icon>mdi-trash-can</v-icon>
           Delete

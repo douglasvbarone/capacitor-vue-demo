@@ -1,18 +1,22 @@
 <template>
   <v-container v-if="info">
-    <v-list two-line v-for="(type, key) in info" :key="key">
-      <v-list-item v-for="(item, key) in type" :key="key">
-        <v-list-item-icon>
-          <v-icon>mdi-information</v-icon>
-        </v-list-item-icon>
-        <v-list-item-content>
-          <v-list-item-title>{{
-            item ? item : "Not applicable"
-          }}</v-list-item-title>
-          <v-list-item-subtitle>{{ key }}</v-list-item-subtitle>
-        </v-list-item-content>
-      </v-list-item>
-    </v-list>
+    <v-row>
+      <v-col v-for="(type, key) in info" :key="key">
+        <v-list two-line>
+          <v-subheader>
+            {{ key }}
+          </v-subheader>
+          <v-list-item v-for="(item, key) in type" :key="key">
+            <v-list-item-content>
+              <v-list-item-title>{{
+                item ? item : "Not applicable"
+              }}</v-list-item-title>
+              <v-list-item-subtitle>{{ key }}</v-list-item-subtitle>
+            </v-list-item-content>
+          </v-list-item>
+        </v-list>
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 

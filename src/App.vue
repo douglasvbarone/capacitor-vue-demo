@@ -48,6 +48,12 @@ export default {
       { title: "Home", icon: "mdi-view-dashboard", to: "/" },
       { title: "Camera", icon: "mdi-camera", to: "/camera" },
       { title: "Location", icon: "mdi-map-marker", to: "/location" },
+      {
+        title: "Local Notifications",
+        icon: "mdi-bell",
+        to: "/local-notifications"
+      },
+      { title: "Modals", icon: "mdi-window-restore", to: "/modals" },
       { title: "Device", icon: "mdi-developer-board", to: "/device" }
     ]
   })

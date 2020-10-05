@@ -1,6 +1,11 @@
 <template>
   <v-container class="fill-height">
     <v-row>
+      <v-col :cols="12" class="text-center">
+        <v-icon size="96pt" color="secondary">mdi-map-marker</v-icon>
+      </v-col>
+    </v-row>
+    <v-row>
       <v-col class="text-center">
         <v-btn
           v-if="!position"
