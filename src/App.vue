@@ -55,7 +55,8 @@ export default {
     nav: [
       { title: "Home", icon: "mdi-view-dashboard", to: "/" },
       { title: "Camera", icon: "mdi-camera", to: "/camera" },
-      { title: "Location", icon: "mdi-map-marker", to: "/location" }
+      { title: "Location", icon: "mdi-map-marker", to: "/location" },
+      { title: "Device", icon: "mdi-developer-board", to: "/device" }
     ]
   })
 };

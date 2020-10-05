@@ -30,6 +30,12 @@ const routes = [
     name: "Location",
     component: () =>
       import(/* webpackChunkName: "location" */ "../views/Location.vue")
+  },
+  {
+    path: "/device",
+    name: "Device",
+    component: () =>
+      import(/* webpackChunkName: "device" */ "../views/Device.vue")
   }
 ];
 

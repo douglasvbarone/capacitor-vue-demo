@@ -1,9 +1,22 @@
 <template>
   <v-container class="fill-height">
-    <v-btn @click="getCurrentPosition">Get position</v-btn>
-    <div v-if="position">
-      Latitude: {{ position.latitude }} Longitude: {{ position.longitude }}
-    </div>
+    <v-row>
+      <v-col class="text-center">
+        <v-btn
+          v-if="!position"
+          @click="getCurrentPosition"
+          color="primary"
+          x-large
+          rounded
+        >
+          <v-icon left>mdi-map-marker</v-icon>
+          Get position
+        </v-btn>
+        <div v-if="position">
+          Latitude: {{ position.latitude }} Longitude: {{ position.longitude }}
+        </div>
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 
@@ -34,10 +47,6 @@ export default {
         });
       }
     }
-    // watchPosition() {
-    //   const wait = Geolocation.watchPosition({}, (position, err) => {
-    //   })
-    // }
   }
 };
 </script>
