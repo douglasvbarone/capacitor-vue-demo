@@ -13,7 +13,8 @@
           Get position
         </v-btn>
         <div v-if="position">
-          Latitude: {{ position.latitude }} Longitude: {{ position.longitude }}
+          Latitude: {{ position.latitude }} <br />
+          Longitude: {{ position.longitude }}
         </div>
       </v-col>
     </v-row>
@@ -40,7 +41,7 @@ export default {
         };
         console.dir(position);
       } catch (e) {
-        Modals.alert({
+        await Modals.alert({
           title: "Ops!",
           message: "Location unavailable.",
           buttonTitle: "OK"

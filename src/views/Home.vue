@@ -1,13 +1,17 @@
 <template>
   <v-container class="fill-height">
-    <v-card class="home ma-1 " flat>
-      <div class="my-5 text-center display-1">
-        Capacitor & Vue
-      </div>
-
-      <v-img src="../assets/logo.png" :height="150" contain />
-
+    <v-card class="home " flat>
       <v-card-text class="text-center">
+        <v-container fluid>
+          <v-row class="text-center" align-content="middle" align="center">
+            <v-col>
+              <v-img src="../assets/vue-logo.png" :height="150" contain />
+            </v-col>
+            <v-col>
+              <v-img src="../assets/capacitor.png" :height="100" contain />
+            </v-col>
+          </v-row>
+        </v-container>
         This is a simple demonstration of
         <v-btn
           style="text-transform: none"
