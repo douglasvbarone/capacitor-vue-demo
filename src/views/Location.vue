@@ -1,7 +1,9 @@
 <template>
   <v-container class="fill-height">
     <v-btn @click="getCurrentPosition">Get position</v-btn>
-    gps: {{ position }}
+    <div v-if="position">
+      Latitude: {{ position.latitude }} Longitude: {{ position.longitude }}
+    </div>
   </v-container>
 </template>
 
@@ -28,7 +30,7 @@ export default {
         Modals.alert({
           title: "Ops!",
           message: "Location unavailable.",
-          buttonTitle: ":'("
+          buttonTitle: "OK"
         });
       }
     }
