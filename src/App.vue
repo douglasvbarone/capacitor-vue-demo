@@ -1,16 +1,8 @@
 <template>
   <v-app id="demo">
     <v-navigation-drawer v-model="drawer" app>
+      <v-img src="./assets/capacitor.png" class="ma-4" contain />
       <v-list dense rounded>
-        <v-list-item class="mb-4">
-          <v-list-item-content>
-            <v-list-item-title class="title">
-              Capacitor & Vue
-            </v-list-item-title>
-            <v-list-item-subtitle>Demonstration</v-list-item-subtitle>
-          </v-list-item-content>
-        </v-list-item>
-
         <v-list-item
           color="primary"
           v-for="item in nav"
@@ -51,7 +43,7 @@ export default {
   name: "App",
 
   data: () => ({
-    drawer: true,
+    drawer: false,
     nav: [
       { title: "Home", icon: "mdi-view-dashboard", to: "/" },
       { title: "Camera", icon: "mdi-camera", to: "/camera" },

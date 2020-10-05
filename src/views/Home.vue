@@ -7,7 +7,7 @@
             <v-col>
               <v-img src="../assets/vue-logo.png" :height="150" contain />
             </v-col>
-q            <v-col>
+            <v-col>
               <v-img src="../assets/capacitor.png" :height="100" contain />
             </v-col>
           </v-row>
