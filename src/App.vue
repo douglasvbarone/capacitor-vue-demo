@@ -54,6 +54,7 @@ export default {
         to: "/local-notifications"
       },
       { title: "Modals", icon: "mdi-window-restore", to: "/modals" },
+      { title: "Browser", icon: "mdi-google-chrome", to: "/browser" },
       { title: "Device", icon: "mdi-developer-board", to: "/device" }
     ]
   })

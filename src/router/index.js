@@ -46,6 +46,12 @@ const routes = [
       import(/* webpackChunkName: "modals" */ "../views/Modals.vue")
   },
   {
+    path: "/browser",
+    name: "Browser",
+    component: () =>
+      import(/* webpackChunkName: "browser" */ "../views/Browser.vue")
+  },
+  {
     path: "/device",
     name: "Device",
     component: () =>

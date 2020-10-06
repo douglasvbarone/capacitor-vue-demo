@@ -6,14 +6,14 @@
       </v-col>
     </v-row>
     <v-row v-if="!imageSrc" class="align-content-center">
-      <v-col>
-        <v-btn x-large @click="takePicture(true)" block rounded color="primary">
+      <v-col class="text-center">
+        <v-btn x-large @click="takePicture(true)" rounded color="primary">
           <v-icon left>mdi-camera</v-icon>
           Take a pic
         </v-btn>
       </v-col>
-      <v-col>
-        <v-btn x-large @click="takePicture(false)" block outlined rounded>
+      <v-col class="text-center">
+        <v-btn x-large @click="takePicture(false)" outlined rounded>
           <v-icon left>mdi-image</v-icon>
           Select from gallery
         </v-btn>
