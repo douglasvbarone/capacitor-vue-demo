@@ -36,7 +36,7 @@ export default {
   name: "Location",
   data: () => ({
     position: null,
-    loading: false
+    loading: false,
   }),
   methods: {
     async getCurrentPosition() {
@@ -45,20 +45,20 @@ export default {
         const position = await Geolocation.getCurrentPosition();
         this.position = {
           latitude: position.coords.latitude,
-          longitude: position.coords.longitude
+          longitude: position.coords.longitude,
         };
         console.dir(position);
       } catch (e) {
         await Modals.alert({
           title: "Ops!",
           message: "Location unavailable.",
-          buttonTitle: "OK"
+          buttonTitle: "OK",
         });
       } finally {
         this.loading = false;
       }
-    }
-  }
+    },
+  },
 };
 </script>
 

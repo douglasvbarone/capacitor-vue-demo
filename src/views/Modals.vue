@@ -25,7 +25,14 @@
         </v-btn>
       </v-col>
       <v-col>
-        <v-btn x-large color="primary" @click="showActionsModal" rounded block>
+        <v-btn
+          :disabled="platform === 'web'"
+          x-large
+          color="primary"
+          @click="showActionsModal"
+          rounded
+          block
+        >
           <v-icon left>mdi-dock-bottom</v-icon>
           Actions
         </v-btn>
@@ -35,17 +42,22 @@
 </template>
 
 <script>
-import { Plugins } from "@capacitor/core";
+import { Plugins, Capacitor } from "@capacitor/core";
 const { Modals } = Plugins;
 
 export default {
   name: "Modals",
+  computed: {
+    platform() {
+      return Capacitor.getPlatform();
+    },
+  },
   methods: {
     async alertModal() {
       await Modals.alert({
         title: "Alert title",
         message: "Alert message.",
-        buttonTitle: "Button text"
+        buttonTitle: "Button text",
       });
     },
     async confirmModal() {
@@ -53,7 +65,7 @@ export default {
         title: "Confirm title",
         message: "Confirm message?",
         cancelButtonTitle: "Cancel text",
-        okButtonTitle: "OK text"
+        okButtonTitle: "OK text",
       });
     },
     async promptModal() {
@@ -62,7 +74,7 @@ export default {
         message: "Prompt message:",
         cancelButtonTitle: "Cancel text",
         okButtonTitle: "OK text",
-        inputPlaceholder: "Placeholder"
+        inputPlaceholder: "Placeholder",
       });
     },
     async showActionsModal() {
@@ -72,11 +84,11 @@ export default {
         options: [
           { title: "Option 1" },
           { title: "Option 2" },
-          { title: "Option 3" }
-        ]
+          { title: "Option 3" },
+        ],
       });
-    }
-  }
+    },
+  },
 };
 </script>
 

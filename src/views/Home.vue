@@ -1,6 +1,6 @@
 <template>
   <v-container class="fill-height">
-    <v-card class="home " flat>
+    <v-card class="home" flat>
       <v-card-text class="text-center">
         <v-container fluid>
           <v-row class="text-center" align-content="middle" align="center">
@@ -44,8 +44,8 @@ export default {
   name: "Home",
   methods: {
     show() {
-      this.$emit("openDrawer");
-    }
-  }
+      this.$emit("open-drawer");
+    },
+  },
 };
 </script>

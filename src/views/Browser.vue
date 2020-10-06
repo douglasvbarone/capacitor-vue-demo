@@ -23,10 +23,10 @@ export default {
   methods: {
     async openBrowser() {
       await Browser.open({
-        url: "https://github.com/douglasvbarone/capacitor-vue-demo"
+        url: "https://github.com/douglasvbarone/capacitor-vue-demo",
       });
-    }
-  }
+    },
+  },
 };
 </script>
 

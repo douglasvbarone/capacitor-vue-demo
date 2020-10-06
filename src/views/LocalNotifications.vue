@@ -35,7 +35,7 @@ export default {
   name: "LocalNotifications",
   data: () => ({
     title: "",
-    body: ""
+    body: "",
   }),
   mounted() {
     LocalNotifications.requestPermission();
@@ -52,13 +52,13 @@ export default {
             sound: null,
             attachments: null,
             actionTypeId: "",
-            extra: null
-          }
-        ]
+            extra: null,
+          },
+        ],
       });
       this.title = this.body = "";
-    }
-  }
+    },
+  },
 };
 </script>
 

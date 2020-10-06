@@ -33,7 +33,9 @@
     </v-app-bar>
 
     <v-main>
-      <router-view @openDrawer="drawer = true" />
+      <v-scroll-x-transition mode="out-in">
+        <router-view @open-drawer="drawer = true" />
+      </v-scroll-x-transition>
     </v-main>
   </v-app>
 </template>
@@ -51,12 +53,12 @@ export default {
       {
         title: "Local Notifications",
         icon: "mdi-bell",
-        to: "/local-notifications"
+        to: "/local-notifications",
       },
       { title: "Modals", icon: "mdi-window-restore", to: "/modals" },
       { title: "Browser", icon: "mdi-google-chrome", to: "/browser" },
-      { title: "Device", icon: "mdi-developer-board", to: "/device" }
-    ]
-  })
+      { title: "Device", icon: "mdi-developer-board", to: "/device" },
+    ],
+  }),
 };
 </script>

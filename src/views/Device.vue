@@ -27,7 +27,7 @@ const { Device } = Plugins;
 export default {
   name: "Device",
   data: () => ({
-    info: null
+    info: null,
   }),
 
   methods: {
@@ -35,13 +35,13 @@ export default {
       this.info = {
         device: await Device.getInfo(),
         battery: await Device.getBatteryInfo(),
-        langCode: await Device.getLanguageCode()
+        langCode: await Device.getLanguageCode(),
       };
-    }
+    },
   },
   mounted() {
     this.getDeviceInfo();
-  }
+  },
 };
 </script>
 

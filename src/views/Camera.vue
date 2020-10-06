@@ -39,19 +39,19 @@ const { Camera } = Plugins;
 export default {
   name: "Camera",
   data: () => ({
-    imageSrc: null
+    imageSrc: null,
   }),
   methods: {
     async takePicture(cam) {
       const image = await Camera.getPhoto({
         quality: 90,
         resultType: CameraResultType.Uri,
-        source: cam ? "CAMERA" : "PHOTOS"
+        source: cam ? "CAMERA" : "PHOTOS",
       });
 
       this.imageSrc = image.webPath;
-    }
-  }
+    },
+  },
 };
 </script>
 
