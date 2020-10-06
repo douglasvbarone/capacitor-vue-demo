@@ -1,68 +1,74 @@
-import Vue from "vue";
-import VueRouter from "vue-router";
-import Home from "../views/Home.vue";
+import Vue from 'vue'
+import VueRouter from 'vue-router'
+import Home from '../views/Home.vue'
 
-Vue.use(VueRouter);
+Vue.use(VueRouter)
 
 const routes = [
   {
-    path: "/",
-    name: "Home",
-    component: Home,
+    path: '/',
+    name: 'Home',
+    component: Home
   },
   {
-    path: "/about",
-    name: "About",
+    path: '/about',
+    name: 'About',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/About.vue"),
+      import(/* webpackChunkName: "about" */ '../views/About.vue')
   },
   {
-    path: "/camera",
-    name: "Camera",
+    path: '/camera',
+    name: 'Camera',
     component: () =>
-      import(/* webpackChunkName: "camera" */ "../views/Camera.vue"),
+      import(/* webpackChunkName: "camera" */ '../views/Camera.vue')
   },
   {
-    path: "/location",
-    name: "Location",
+    path: '/location',
+    name: 'Location',
     component: () =>
-      import(/* webpackChunkName: "location" */ "../views/Location.vue"),
+      import(/* webpackChunkName: "location" */ '../views/Location.vue')
   },
   {
-    path: "/local-notifications",
-    name: "LocalNotifications",
+    path: '/local-notifications',
+    name: 'LocalNotifications',
     component: () =>
       import(
-        /* webpackChunkName: "local-notifications" */ "../views/LocalNotifications.vue"
-      ),
+        /* webpackChunkName: "local-notifications" */ '../views/LocalNotifications.vue'
+      )
   },
   {
-    path: "/modals",
-    name: "Modals",
+    path: '/modals',
+    name: 'Modals',
     component: () =>
-      import(/* webpackChunkName: "modals" */ "../views/Modals.vue"),
+      import(/* webpackChunkName: "modals" */ '../views/Modals.vue')
   },
   {
-    path: "/browser",
-    name: "Browser",
+    path: '/browser',
+    name: 'Browser',
     component: () =>
-      import(/* webpackChunkName: "browser" */ "../views/Browser.vue"),
+      import(/* webpackChunkName: "browser" */ '../views/Browser.vue')
   },
   {
-    path: "/device",
-    name: "Device",
+    path: '/clipboard',
+    name: 'Clipboard',
     component: () =>
-      import(/* webpackChunkName: "device" */ "../views/Device.vue"),
+      import(/* webpackChunkName: "clipboard" */ '../views/Clipboard.vue')
   },
-];
+  {
+    path: '/device',
+    name: 'Device',
+    component: () =>
+      import(/* webpackChunkName: "device" */ '../views/Device.vue')
+  }
+]
 
 const router = new VueRouter({
-  mode: "history",
+  mode: 'history',
   base: process.env.BASE_URL,
-  routes,
-});
+  routes
+})
 
-export default router;
+export default router

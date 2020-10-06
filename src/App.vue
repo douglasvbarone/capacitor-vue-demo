@@ -41,24 +41,30 @@
 </template>
 
 <script>
-export default {
-  name: "App",
+import { defineCustomElements } from '@ionic/pwa-elements/loader'
 
+export default {
+  name: 'App',
+  mounted() {
+    this.drawer = this.$vuetify.breakpoint.lgAndUp
+    defineCustomElements(window)
+  },
   data: () => ({
     drawer: false,
     nav: [
-      { title: "Home", icon: "mdi-view-dashboard", to: "/" },
-      { title: "Camera", icon: "mdi-camera", to: "/camera" },
-      { title: "Location", icon: "mdi-map-marker", to: "/location" },
+      { title: 'Home', icon: 'mdi-view-dashboard-outline', to: '/' },
+      { title: 'Camera', icon: 'mdi-camera-outline', to: '/camera' },
+      { title: 'Location', icon: 'mdi-map-marker-outline', to: '/location' },
       {
-        title: "Local Notifications",
-        icon: "mdi-bell",
-        to: "/local-notifications",
+        title: 'Local Notifications',
+        icon: 'mdi-bell-outline',
+        to: '/local-notifications'
       },
-      { title: "Modals", icon: "mdi-window-restore", to: "/modals" },
-      { title: "Browser", icon: "mdi-google-chrome", to: "/browser" },
-      { title: "Device", icon: "mdi-developer-board", to: "/device" },
-    ],
-  }),
-};
+      { title: 'Modals', icon: 'mdi-window-restore', to: '/modals' },
+      { title: 'Browser', icon: 'mdi-google-chrome', to: '/browser' },
+      { title: 'Clipboard', icon: 'mdi-clipboard-outline', to: '/clipboard' },
+      { title: 'Device', icon: 'mdi-developer-board', to: '/device' }
+    ]
+  })
+}
 </script>

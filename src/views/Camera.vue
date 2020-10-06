@@ -32,27 +32,27 @@
 </template>
 
 <script>
-import { Plugins, CameraResultType } from "@capacitor/core";
+import { Plugins, CameraResultType, CameraSource } from '@capacitor/core'
 
-const { Camera } = Plugins;
+const { Camera } = Plugins
 
 export default {
-  name: "Camera",
+  name: 'Camera',
   data: () => ({
-    imageSrc: null,
+    imageSrc: null
   }),
   methods: {
     async takePicture(cam) {
       const image = await Camera.getPhoto({
         quality: 90,
         resultType: CameraResultType.Uri,
-        source: cam ? "CAMERA" : "PHOTOS",
-      });
+        source: cam ? CameraSource.Camera : CameraSource.Photos
+      })
 
-      this.imageSrc = image.webPath;
-    },
-  },
-};
+      this.imageSrc = image.webPath
+    }
+  }
+}
 </script>
 
 <style scoped></style>

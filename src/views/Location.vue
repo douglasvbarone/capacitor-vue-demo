@@ -28,38 +28,38 @@
 </template>
 
 <script>
-import { Plugins } from "@capacitor/core";
+import { Plugins } from '@capacitor/core'
 
-const { Geolocation, Modals } = Plugins;
+const { Geolocation, Modals } = Plugins
 
 export default {
-  name: "Location",
+  name: 'Location',
   data: () => ({
     position: null,
-    loading: false,
+    loading: false
   }),
   methods: {
     async getCurrentPosition() {
       try {
-        this.loading = true;
-        const position = await Geolocation.getCurrentPosition();
+        this.loading = true
+        const position = await Geolocation.getCurrentPosition()
         this.position = {
           latitude: position.coords.latitude,
-          longitude: position.coords.longitude,
-        };
-        console.dir(position);
+          longitude: position.coords.longitude
+        }
+        console.dir(position)
       } catch (e) {
         await Modals.alert({
-          title: "Ops!",
-          message: "Location unavailable.",
-          buttonTitle: "OK",
-        });
+          title: 'Ops!',
+          message: 'Location unavailable.',
+          buttonTitle: 'OK'
+        })
       } finally {
-        this.loading = false;
+        this.loading = false
       }
-    },
-  },
-};
+    }
+  }
+}
 </script>
 
 <style scoped></style>

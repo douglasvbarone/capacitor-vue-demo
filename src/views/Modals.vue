@@ -25,14 +25,7 @@
         </v-btn>
       </v-col>
       <v-col>
-        <v-btn
-          :disabled="platform === 'web'"
-          x-large
-          color="primary"
-          @click="showActionsModal"
-          rounded
-          block
-        >
+        <v-btn x-large color="primary" @click="showActionsModal" rounded block>
           <v-icon left>mdi-dock-bottom</v-icon>
           Actions
         </v-btn>
@@ -42,54 +35,50 @@
 </template>
 
 <script>
-import { Plugins, Capacitor } from "@capacitor/core";
-const { Modals } = Plugins;
+import { Plugins } from '@capacitor/core'
+const { Modals } = Plugins
 
 export default {
-  name: "Modals",
-  computed: {
-    platform() {
-      return Capacitor.getPlatform();
-    },
-  },
+  name: 'Modals',
+
   methods: {
     async alertModal() {
       await Modals.alert({
-        title: "Alert title",
-        message: "Alert message.",
-        buttonTitle: "Button text",
-      });
+        title: 'Alert title',
+        message: 'Alert message.',
+        buttonTitle: 'Button text'
+      })
     },
     async confirmModal() {
       await Modals.confirm({
-        title: "Confirm title",
-        message: "Confirm message?",
-        cancelButtonTitle: "Cancel text",
-        okButtonTitle: "OK text",
-      });
+        title: 'Confirm title',
+        message: 'Confirm message?',
+        cancelButtonTitle: 'Cancel text',
+        okButtonTitle: 'OK text'
+      })
     },
     async promptModal() {
       await Modals.prompt({
-        title: "Prompt title",
-        message: "Prompt message:",
-        cancelButtonTitle: "Cancel text",
-        okButtonTitle: "OK text",
-        inputPlaceholder: "Placeholder",
-      });
+        title: 'Prompt title',
+        message: 'Prompt message:',
+        cancelButtonTitle: 'Cancel text',
+        okButtonTitle: 'OK text',
+        inputPlaceholder: 'Placeholder'
+      })
     },
     async showActionsModal() {
       await Modals.showActions({
-        title: "Actions title",
-        message: "Actions message.",
+        title: 'Actions title',
+        message: 'Actions message.',
         options: [
-          { title: "Option 1" },
-          { title: "Option 2" },
-          { title: "Option 3" },
-        ],
-      });
-    },
-  },
-};
+          { title: 'Option 1' },
+          { title: 'Option 2' },
+          { title: 'Option 3' }
+        ]
+      })
+    }
+  }
+}
 </script>
 
 <style scoped></style>

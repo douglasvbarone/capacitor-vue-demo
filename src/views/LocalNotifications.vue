@@ -28,38 +28,38 @@
 </template>
 
 <script>
-import { Plugins } from "@capacitor/core";
-const { LocalNotifications } = Plugins;
+import { Plugins } from '@capacitor/core'
+const { LocalNotifications } = Plugins
 
 export default {
-  name: "LocalNotifications",
+  name: 'LocalNotifications',
   data: () => ({
-    title: "",
-    body: "",
+    title: '',
+    body: ''
   }),
   mounted() {
-    LocalNotifications.requestPermission();
+    LocalNotifications.requestPermission()
   },
   methods: {
     async notify() {
       await LocalNotifications.schedule({
         notifications: [
           {
-            title: this.title || "Hey!",
-            body: this.body || "This is a notification",
+            title: this.title || 'Hey!',
+            body: this.body || 'This is a notification',
             id: 1,
             //schedule: { at: new Date(Date.now() + 1000) },
             sound: null,
             attachments: null,
-            actionTypeId: "",
-            extra: null,
-          },
-        ],
-      });
-      this.title = this.body = "";
-    },
-  },
-};
+            actionTypeId: '',
+            extra: null
+          }
+        ]
+      })
+      this.title = this.body = ''
+    }
+  }
+}
 </script>
 
 <style scoped></style>

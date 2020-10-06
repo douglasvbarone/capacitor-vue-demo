@@ -16,18 +16,18 @@
 </template>
 
 <script>
-import { Plugins } from "@capacitor/core";
-const { Browser } = Plugins;
+import { Plugins } from '@capacitor/core'
+const { Browser } = Plugins
 export default {
-  name: "Browser",
+  name: 'Browser',
   methods: {
     async openBrowser() {
       await Browser.open({
-        url: "https://github.com/douglasvbarone/capacitor-vue-demo",
-      });
-    },
-  },
-};
+        url: 'https://github.com/douglasvbarone/capacitor-vue-demo'
+      })
+    }
+  }
+}
 </script>
 
 <style scoped></style>

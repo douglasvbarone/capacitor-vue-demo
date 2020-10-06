@@ -9,7 +9,7 @@
           <v-list-item v-for="(item, key) in type" :key="key">
             <v-list-item-content>
               <v-list-item-title>{{
-                item ? item : "Not applicable"
+                item ? item : 'Not applicable'
               }}</v-list-item-title>
               <v-list-item-subtitle>{{ key }}</v-list-item-subtitle>
             </v-list-item-content>
@@ -21,13 +21,13 @@
 </template>
 
 <script>
-import { Plugins } from "@capacitor/core";
-const { Device } = Plugins;
+import { Plugins } from '@capacitor/core'
+const { Device } = Plugins
 
 export default {
-  name: "Device",
+  name: 'Device',
   data: () => ({
-    info: null,
+    info: null
   }),
 
   methods: {
@@ -35,14 +35,14 @@ export default {
       this.info = {
         device: await Device.getInfo(),
         battery: await Device.getBatteryInfo(),
-        langCode: await Device.getLanguageCode(),
-      };
-    },
+        langCode: await Device.getLanguageCode()
+      }
+    }
   },
   mounted() {
-    this.getDeviceInfo();
-  },
-};
+    this.getDeviceInfo()
+  }
+}
 </script>
 
 <style scoped></style>

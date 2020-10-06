@@ -41,11 +41,11 @@
 
 <script>
 export default {
-  name: "Home",
+  name: 'Home',
   methods: {
     show() {
-      this.$emit("open-drawer");
-    },
-  },
-};
+      this.$emit('open-drawer')
+    }
+  }
+}
 </script>
