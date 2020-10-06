@@ -1,4 +1,6 @@
 # Capacitor & Vue Demonstration
+[![Netlify Status](https://api.netlify.com/api/v1/badges/d847df57-c34b-417c-9eb0-1785de3adbed/deploy-status)](https://app.netlify.com/sites/capacitor-vue-demo/deploys)
+
 Web demo: [https://capacitor-vue-demo.netlify.app/](https://capacitor-vue-demo.netlify.app/)
 ## Requirements 
 
