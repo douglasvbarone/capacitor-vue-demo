@@ -1,12 +1,12 @@
 <template>
-  <v-container class="fill-height">
+  <v-container class="fill-height" fluid>
     <v-row>
       <v-col :cols="12" class="text-center">
         <v-icon size="96pt" color="secondary">mdi-map-marker</v-icon>
       </v-col>
     </v-row>
-    <v-row>
-      <v-col class="text-center">
+    <v-row no-gutters>
+      <v-col class="text-center fill-height">
         <v-btn
           v-if="!position"
           :loading="loading"
@@ -18,9 +18,24 @@
           <v-icon left>mdi-map-marker</v-icon>
           Get position
         </v-btn>
-        <div v-if="position">
-          Latitude: {{ position.latitude }} <br />
-          Longitude: {{ position.longitude }}
+        <div id="map" v-if="position">
+          <LMap
+            :center="position"
+            :zoom="15"
+            :style="{
+              width: '100%',
+              height: '70vh',
+              zIndex: 1,
+              display: 'block'
+            }"
+          >
+            <LTileLayer
+              url="https://a.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            />
+            <LMarker :latLng="position">
+              <LPopup> You are here </LPopup>
+            </LMarker>
+          </LMap>
         </div>
       </v-col>
     </v-row>
@@ -29,11 +44,29 @@
 
 <script>
 import { Plugins } from '@capacitor/core'
+import { LMap, LTileLayer, LMarker, LPopup } from 'vue2-leaflet'
+
+import 'leaflet/dist/leaflet.css'
+
+import { Icon } from 'leaflet'
+
+delete Icon.Default.prototype._getIconUrl
+Icon.Default.mergeOptions({
+  iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png'),
+  iconUrl: require('leaflet/dist/images/marker-icon.png'),
+  shadowUrl: require('leaflet/dist/images/marker-shadow.png')
+})
 
 const { Geolocation, Modals } = Plugins
 
 export default {
   name: 'Location',
+  components: {
+    LMap,
+    LTileLayer,
+    LMarker,
+    LPopup
+  },
   data: () => ({
     position: null,
     loading: false
@@ -43,10 +76,7 @@ export default {
       try {
         this.loading = true
         const position = await Geolocation.getCurrentPosition()
-        this.position = {
-          latitude: position.coords.latitude,
-          longitude: position.coords.longitude
-        }
+        this.position = [position.coords.latitude, position.coords.longitude]
         console.dir(position)
       } catch (e) {
         await Modals.alert({
