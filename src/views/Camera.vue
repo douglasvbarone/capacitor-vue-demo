@@ -12,7 +12,7 @@
           Take a pic
         </v-btn>
       </v-col>
-      <v-col class="text-center">
+      <v-col class="text-center" v-if="platform != 'web'">
         <v-btn x-large @click="takePicture(false)" outlined rounded>
           <v-icon left>mdi-image</v-icon>
           Select from gallery
@@ -32,7 +32,12 @@
 </template>
 
 <script>
-import { Plugins, CameraResultType, CameraSource } from '@capacitor/core'
+import {
+  Plugins,
+  CameraResultType,
+  CameraSource,
+  Capacitor
+} from '@capacitor/core'
 
 const { Camera } = Plugins
 
@@ -50,6 +55,11 @@ export default {
       })
 
       this.imageSrc = image.webPath
+    }
+  },
+  computed: {
+    platform() {
+      return Capacitor.platform
     }
   }
 }
