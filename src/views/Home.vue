@@ -3,7 +3,7 @@
     <v-card class="home" flat>
       <v-card-text class="text-center">
         <v-container fluid>
-          <v-row class="text-center" align-content="middle" align="center">
+          <v-row class="text-center" align="center">
             <v-col>
               <v-img src="../assets/vue-logo.png" :height="150" contain />
             </v-col>
@@ -30,7 +30,13 @@
       </v-card-text>
       <v-card-actions>
         <v-spacer />
-        <v-btn color="primary my-5 pa-6" x-large :elevation="0" @click="show">
+        <v-btn
+          v-if="!drawer"
+          color="primary my-5 pa-6"
+          x-large
+          :elevation="0"
+          @click="show"
+        >
           Show-me
         </v-btn>
         <v-spacer />
@@ -42,6 +48,12 @@
 <script>
 export default {
   name: 'Home',
+  props: {
+    drawer: {
+      type: Boolean,
+      default: false
+    }
+  },
   methods: {
     show() {
       this.$emit('open-drawer')

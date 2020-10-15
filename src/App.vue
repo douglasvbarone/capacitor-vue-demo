@@ -34,7 +34,7 @@
 
     <v-main>
       <v-scroll-x-transition mode="out-in">
-        <router-view @open-drawer="drawer = true" />
+        <router-view @open-drawer="drawer = true" :drawer="drawer" />
       </v-scroll-x-transition>
     </v-main>
   </v-app>
