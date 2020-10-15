@@ -1,11 +1,11 @@
 <template>
-  <v-container class="fill-height" fluid>
-    <v-row>
+  <v-container class="fill-height pa-0" fluid>
+    <v-row v-if="!position">
       <v-col :cols="12" class="text-center">
         <v-icon size="96pt" color="secondary">mdi-map-marker</v-icon>
       </v-col>
     </v-row>
-    <v-row no-gutters>
+    <v-row no-gutters v-if="!position">
       <v-col class="text-center fill-height">
         <v-btn
           v-if="!position"
@@ -18,27 +18,25 @@
           <v-icon left>mdi-map-marker</v-icon>
           Get position
         </v-btn>
-        <div id="map" v-if="position">
-          <LMap
-            :center="position"
-            :zoom="15"
-            :style="{
-              width: '100%',
-              height: '70vh',
-              zIndex: 1,
-              display: 'block'
-            }"
-          >
-            <LTileLayer
-              url="https://a.tile.openstreetmap.org/{z}/{x}/{y}.png"
-            />
-            <LMarker :latLng="position">
-              <LPopup> You are here </LPopup>
-            </LMarker>
-          </LMap>
-        </div>
       </v-col>
     </v-row>
+    <div id="map" v-if="position" style="height: 100%; width: 100%">
+      <LMap
+        :center="position"
+        :zoom="15"
+        :style="{
+          width: '100%',
+          height: '100%',
+          zIndex: 1,
+          display: 'block'
+        }"
+      >
+        <LTileLayer url="https://a.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+        <LMarker :latLng="position">
+          <LPopup> You are here </LPopup>
+        </LMarker>
+      </LMap>
+    </div>
   </v-container>
 </template>
 
@@ -77,7 +75,6 @@ export default {
         this.loading = true
         const position = await Geolocation.getCurrentPosition()
         this.position = [position.coords.latitude, position.coords.longitude]
-        console.dir(position)
       } catch (e) {
         await Modals.alert({
           title: 'Ops!',
